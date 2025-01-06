@@ -1,0 +1,120 @@
+{
+    "profiles": [
+        {
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "description": "Enable Colemak-DH with Home Row Mods (hold for modifier)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "caps_lock"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "escape"
+                                    }
+                                ]
+                            },
+                            {
+                                "from": { "key_code": "a" },
+                                "to_if_alone": [{ "key_code": "a" }],
+                                "to_if_held_down": [{ "key_code": "left_shift" }]
+                            },
+                            {
+                                "from": { "key_code": "s" },
+                                "to_if_alone": [{ "key_code": "r" }],
+                                "to_if_held_down": [{ "key_code": "left_option" }]
+                            },
+                            {
+                                "from": { "key_code": "d" },
+                                "to_if_alone": [{ "key_code": "s" }],
+                                "to_if_held_down": [{ "key_code": "left_control" }]
+                            },
+                            {
+                                "from": { "key_code": "f" },
+                                "to_if_alone": [{ "key_code": "t" }],
+                                "to_if_held_down": [{ "key_code": "left_command" }]
+                            },
+                            {
+                                "from": { "key_code": "h" },
+                                "to_if_alone": [{ "key_code": "m" }]
+                            },
+                            {
+                                "from": { "key_code": "j" },
+                                "to_if_alone": [{ "key_code": "n" }],
+                                "to_if_held_down": [{ "key_code": "right_command" }]
+                            },
+                            {
+                                "from": { "key_code": "k" },
+                                "to_if_alone": [{ "key_code": "e" }],
+                                "to_if_held_down": [{ "key_code": "right_control" }]
+                            },
+                            {
+                                "from": { "key_code": "l" },
+                                "to_if_alone": [{ "key_code": "i" }],
+                                "to_if_held_down": [{ "key_code": "right_option" }]
+                            },
+                            {
+                                "from": { "key_code": "semicolon" },
+                                "to_if_alone": [{ "key_code": "o" }],
+                                "to_if_held_down": [{ "key_code": "right_shift" }]
+                            },
+                            {
+                                "from": { "key_code": "e" },
+                                "to_if_alone": [{ "key_code": "f" }]
+                            },
+                            {
+                                "from": { "key_code": "r" },
+                                "to_if_alone": [{ "key_code": "p" }]
+                            },
+                            {
+                                "from": {"key_code": "t"},
+                                "to_if_alone": [{ "key_code": "b"}]
+                            },
+                            {
+                                "from": {"key_code": "y"},
+                                "to_if_alone": [{ "key_code": "j"}]
+                            },
+                            {
+                                "from": {"key_code": "u"},
+                                "to_if_alone": [{ "key_code": "l"}]
+                            },
+                            {
+                                "from": {"key_code": "i"},
+                                "to_if_alone": [{ "key_code": "u"}]
+                            },
+                            {
+                                "from": {"key_code": "o"},
+                                "to_if_alone": [{ "key_code": "y"}]
+                            },
+                            {
+                                "from": {"key_code": "p"},
+                                "to_if_alone": [{ "key_code": "semicolon"}]
+                            },
+                            {
+                                "from": {"key_code": "v"},
+                                "to_if_alone": [{ "key_code": "d"}]
+                            },
+                            {
+                                "from": {"key_code": "b"},
+                                "to_if_alone": [{ "key_code": "v"}]
+                            },
+                            {
+                                "from": {"key_code": "n"},
+                                "to_if_alone": [{ "key_code": "k"}]
+                            },
+                            {
+                                "from": {"key_code": "m"},
+                                "to_if_alone": [{ "key_code": "h"}]
+                            },
+                        ]
+                    }
+                ]
+            },
+            "name": "Colemak DH with Home Row Mods (hold for modifier)",
+            "selected": true,
+            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+        }
+    ]
+}

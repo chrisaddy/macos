@@ -15,7 +15,16 @@ autoload -Uz _zinit
 zinit ice as"command" from"gh-r" \
           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
           atpull"%atclone" src"init.zsh"
+
+zinit ice wait lucid
 zinit light starship/starship
 
+zinit ice wait lucid
 zinit light zsh-users/zsh-autosuggestions
+zinit ice wait lucid
 zinit light zdharma-continuum/fast-syntax-highlighting
+
+alias vim=nvim
+
+eval "$(direnv hook zsh)"
+
