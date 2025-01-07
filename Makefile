@@ -1,8 +1,7 @@
 update:
 	brew bundle
-	stow zsh
+	stow zsh gitconfig
 	cargo install cargo-binstall
-
 
 install:
 	/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
