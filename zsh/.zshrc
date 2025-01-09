@@ -24,3 +24,5 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 alias vim=nvim
 
 eval "$(direnv hook zsh)"
+
+source $HOME/.secrets
