@@ -1,6 +1,6 @@
 update:
 	brew bundle
-	stow zsh gitconfig
+	stow zsh gitconfig tmux
 	cargo install cargo-binstall
 
 install:
@@ -9,3 +9,4 @@ install:
 	echo 'eval "$$(/opt/homebrew/bin/brew shellenv)"' >> $$HOME/.zprofile
 	/bin/bash -c "$$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+	curl https://pyenv.run | bash
