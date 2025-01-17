@@ -9,20 +9,33 @@ fi
 
 source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
 
+# Load plugins
 zinit ice as"command" from"gh-r" \
           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
           atpull"%atclone" src"init.zsh"
-
 zinit light starship/starship
-
-zinit ice
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
 
+# Load completions system
+autoload -Uz compinit
+compinit
+
+# Configure completion styles
+zstyle ':completion:*' menu select
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':fzf-tab:*' switch-group ',' '.'
+
+# Load fzf-tab after compinit and completion configurations
+zinit light Aloxaf/fzf-tab
+
+# Rest of your configuration
 alias vim=nvim
-
 eval "$(direnv hook zsh)"
-
+eval "$(zoxide init zsh --cmd cd)"
 source $HOME/.secrets
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+eval "$(pyenv virtualenv-init -)"
