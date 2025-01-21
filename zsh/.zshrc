@@ -32,6 +32,10 @@ zinit light Aloxaf/fzf-tab
 
 # Rest of your configuration
 alias vim=nvim
+alias open-pdf="sioyek --shared-database-path $HOME/Sync/sioyek/shared.db"
+shelf() {
+    br $HOME/Sync/reading
+}
 eval "$(direnv hook zsh)"
 eval "$(zoxide init zsh --cmd cd)"
 source $HOME/.secrets
@@ -39,3 +43,5 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
 eval "$(pyenv virtualenv-init -)"
+
+source /Users/caddy/.config/broot/launcher/bash/br
