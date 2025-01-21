@@ -1,10 +1,4 @@
 return {
-  'stevearc/oil.nvim',
-  ---@module 'oil'
-  ---@type oil.SetupOpts
-  opts = {},
-  dependencies = { { 'echasnovski/mini.icons', opts = {} } },
-  vim.keymap.set('n', '<leader>o', '<cmd>Oil<cr>', { desc = '[O]il' }),
   vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' }),
   vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' }),
   vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' }),
