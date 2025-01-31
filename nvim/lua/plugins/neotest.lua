@@ -61,7 +61,7 @@ return {
       --   end,
       -- })
       --
-      vim.keymap.set('n', '<leader>tt', function()
+      vim.keymap.set('n', '<leader>tf', function()
         neotest.run.run(vim.fn.expand '%')
       end, { desc = 'Run current file' })
 
@@ -75,7 +75,6 @@ return {
     end,
     ft = { 'python' },
     keys = {
-      { '<leader>tt', desc = 'Run current file' },
       { '<leader>ts', desc = 'Toggle test summary' },
       { '<leader>to', desc = 'Show test output' },
     },

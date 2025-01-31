@@ -34,11 +34,10 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-vim.keymap.set('n', '<leader>fs', '<cmd>w<cr>', { desc = '[F]ile [S]ave' })
-vim.keymap.set('n', '<leader>wj', '<cmd>:split<cr>', { desc = '[W]indow Split Down' })
-vim.keymap.set('n', '<leader>wl', '<cmd>:vsplit<cr>', { desc = '[W]indow Split Right' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = '[q]uickfix list open' })
+vim.keymap.set('n', '<leader>fs', '<cmd>w<cr>', { desc = '[f]ile [s]ave' })
+vim.keymap.set('n', '<leader>wj', '<cmd>:split<cr>', { desc = '[w]indow split down' })
+vim.keymap.set('n', '<leader>wl', '<cmd>:vsplit<cr>', { desc = '[w]indow split right' })
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
@@ -59,7 +58,7 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  -- 'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   {
     'folke/which-key.nvim',
     event = 'VimEnter',
@@ -99,15 +98,15 @@ require('lazy').setup({
         },
       },
 
-      spec = {
-        { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
-        { '<leader>d', group = '[D]ocument' },
-        { '<leader>r', group = '[R]ename' },
-        { '<leader>s', group = '[S]earch' },
-        { '<leader>w', group = '[W]orkspace' },
-        { '<leader>t', group = '[T]oggle' },
-        { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
-      },
+      -- spec = {
+      --   { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
+      --   { '<leader>d', group = '[D]ocument' },
+      --   { '<leader>r', group = '[R]ename' },
+      --   { '<leader>s', group = '[S]earch' },
+      --   { '<leader>w', group = '[W]orkspace' },
+      --   { '<leader>t', group = '[T]oggle' },
+      --   { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+      -- },
     },
   },
   {
@@ -293,8 +292,8 @@ require('lazy').setup({
         sqlls = {},
         sqls = {},
         -- terraform_lsp = {},
-        -- terraformls = {},
-        -- tflint = {},
+        terraformls = {},
+        tflint = {},
         yamlls = {},
         zls = {},
       }

@@ -4,9 +4,6 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
     bigfile = { enabled = true },
     dashboard = { enabled = true },
     indent = { enabled = true },
@@ -15,6 +12,21 @@ return {
     quickfile = { enabled = true },
     scroll = { enabled = true },
     statuscolumn = { enabled = true },
+    terminal = {
+      win = {
+        style = 'floating',
+        opts = {
+          width = 0.8,
+          height = 0.8,
+          border = 'rounded',
+        },
+      },
+      ---@type table<string, snacks.win.Config>
+      styles = {
+        position = 'float',
+      },
+      cmd = { vim.o.shell },
+    },
     words = { enabled = true },
   },
   keys = {
@@ -24,6 +36,14 @@ return {
         Snacks.zen()
       end,
       desc = '[t]oggle [z]en mode',
+    },
+    {
+      '<C-\\>',
+      function()
+        require('snacks.terminal').toggle()
+      end,
+      desc = 'Toggle Terminal',
+      mode = { 'n', 't' },
     },
     {
       '<leader>t.',
@@ -39,7 +59,6 @@ return {
       end,
       desc = '[b]uffer [d]elete',
     },
-
     {
       '<leader>gg',
       function()
@@ -47,14 +66,6 @@ return {
       end,
       desc = 'Lazygit',
     },
-    {
-      '<c-m>',
-      function()
-        Snacks.terminal()
-      end,
-      desc = 'toggle terminal',
-    },
-
     {
       ']]',
       function()

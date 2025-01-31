@@ -33,9 +33,10 @@ zinit light Aloxaf/fzf-tab
 # Rest of your configuration
 alias vim=nvim
 alias c="cd \$(zoxide query --all -i)"
+alias cp="cp -rfiv"
 alias open-pdf="sioyek --shared-database-path $HOME/Sync/sioyek/shared.db"
 shelf() {
-    br $HOME/Sync/reading
+    br $HOME/Sync/shelf
 }
 eval "$(direnv hook zsh)"
 eval "$(zoxide init zsh --cmd cd)"

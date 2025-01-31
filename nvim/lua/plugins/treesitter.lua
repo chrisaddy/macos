@@ -17,6 +17,7 @@ return {
       'rust',
       'query',
       'sql',
+      'terraform',
       'toml',
       'vim',
       'vimdoc',

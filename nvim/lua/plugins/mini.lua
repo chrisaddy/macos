@@ -15,7 +15,7 @@ return {
     require('mini.diff').setup()
     require('mini.git').setup()
 
-    vim.keymap.set('n', '<leader>o', function()
+    vim.keymap.set('n', '<leader>ft', function()
       MiniFiles.open()
     end, { desc = '[f]ile [t]ree' })
 
