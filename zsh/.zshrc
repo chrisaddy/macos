@@ -126,7 +126,7 @@ function cmt() {
   temp_file=$(mktemp)
   echo "$ticket_number $message" > "$temp_file"
 
-  ${EDITOR:-nano} "$temp_file"
+  nvim "$temp_file"
 
   final_message=$(cat "$temp_file")
   rm "$temp_file"
