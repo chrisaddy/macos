@@ -47,3 +47,96 @@ eval "$(pyenv init - zsh)"
 eval "$(pyenv virtualenv-init -)"
 
 source /Users/caddy/.config/broot/launcher/bash/br
+
+
+function murder() {
+  ps aux | 
+  fzf --height 40% \
+      --layout=reverse \
+      --header-lines=1 \
+      --prompt="Select process to kill: " \
+      --preview 'echo {}' \
+      --preview-window up:3:hidden:wrap \
+      --bind 'F2:toggle-preview' |
+  awk '{print $2}' |
+  xargs -r bash -c '
+      if ! kill "$1" 2>/dev/null; then
+          echo "Regular kill failed. Attempting with sudo..."
+          sudo kill "$1" || echo "Failed to kill process $1" >&2
+      fi
+  ' --
+}
+
+
+function create_tmux_session() {
+    local RESULT="$1"
+    zoxide add "$RESULT" &>/dev/null
+    local FOLDER=$(basename "$RESULT")
+    local SESSION_NAME=$(echo "$FOLDER" | tr ' .:' '_')
+
+    if [ -d "$RESULT/.git" ]; then
+        SESSION_NAME+="_$(git -C "$RESULT" symbolic-ref --short HEAD 2>/dev/null)"
+    fi
+
+    if ! tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+        tmux new-session -d -s "$SESSION_NAME" -c "$RESULT"
+    fi
+
+    if [ -z "$TMUX" ]; then
+        tmux attach -t "$SESSION_NAME"
+    else
+        tmux switch-client -t "$SESSION_NAME"
+    fi
+}
+
+function cmt() {
+  local branch diff message temp_file ticket_number final_message
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  diff=$(git --no-pager diff --cached)
+
+  if [[ -z "$diff" ]]; then
+    echo "No changes to commit."
+    return 1
+  fi
+
+  # Extract ticket number from the branch name
+  ticket_number=$(echo "$branch" | grep -oE '[A-Z]+-[0-9]+' || echo "TRIVIAL")
+
+  message=$(echo "$diff" | mods -f "Generate a commit message following these guidelines:
+
+  - The subject must start with the ticket number ('$ticket_number') and a short description (≤50 characters).
+  - The subject line must be capitalized, use the imperative mood, and not end with a period.
+  - Separate subject from body with a blank line.
+  - The body should explain 'what' and 'why' rather than 'how' and be wrapped at 72 characters.
+  - If multiple items are included, use a hyphen or asterisk per line.
+  - Works in progress should still conform to these standards.
+
+  Examples:
+  1. 'Cart to use different Endpoints'
+  2. 'Add Sprint column in dashboard mode'
+  3. 'Fix typo in README'
+
+  Generate a commit message for this git diff:")
+
+  if [[ -z "$message" ]]; then
+    echo "Failed to generate commit message."
+    return 1
+  fi
+
+  temp_file=$(mktemp)
+  echo "$ticket_number $message" > "$temp_file"
+
+  ${EDITOR:-nano} "$temp_file"
+
+  final_message=$(cat "$temp_file")
+  rm "$temp_file"
+
+  # If the commit message is empty, abort
+  if [[ -z "$final_message" ]]; then
+    echo "Commit message is empty. Aborting commit."
+    return 1
+  fi
+
+  git add .
+  git commit -m "$final_message"
+}
