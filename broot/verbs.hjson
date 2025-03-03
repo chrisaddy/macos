@@ -40,6 +40,13 @@ verbs: [
         leave_broot: false
         conditions: { ext: "pdf" }
     }
+    
+    {
+	key: ctrl-n
+	execution: "create_tmux_session {file}"
+	apply_to: directory
+	leave_broot: true
+    }
 
     {
         key: ctrl-r
@@ -47,6 +54,7 @@ verbs: [
         execution: "mv {file} {parent}/{input}"
         apply_to: file
     }
+
 
     # Example 1: launching `tail -n` on the selected file (leaving broot)
     # {
