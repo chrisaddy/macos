@@ -3,3 +3,4 @@ theme = tokyonight_night
 cursor-style = block
 shell-integration-features = cursor,no-title
 background-opacity = 0.4
+macos-titlebar-style = hidden
