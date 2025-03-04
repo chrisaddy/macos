@@ -10,7 +10,7 @@ return {
     require('mini.surround').setup()
     require('mini.bracketed').setup()
     require('mini.files').setup()
-    require('mini.tabline').setup()
+    -- require('mini.tabline').setup()
     require('mini.map').setup()
     require('mini.diff').setup()
     require('mini.git').setup()

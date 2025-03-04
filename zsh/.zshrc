@@ -150,6 +150,4 @@ function ns() {
 export PATH="/Users/caddy/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
-. "$HOME/.local/bin/env"
-
 [ -f "/Users/caddy/.ghcup/env" ] && . "/Users/caddy/.ghcup/env" # ghcup-env

@@ -6,6 +6,11 @@ vim.opt.relativenumber = true
 vim.opt.mouse = 'a'
 vim.opt.showmode = false
 
+vim.cmd [[
+  set termguicolors
+  syntax enable
+]]
+
 vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)

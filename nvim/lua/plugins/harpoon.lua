@@ -46,23 +46,8 @@ return {
         end
       end
 
-      -- Enable tabline
-      vim.opt.showtabline = 2
-      vim.opt.tabline = '%!v:lua.harpoon_tabline()'
-
-      -- Create autocommand to refresh tabline
-      local augroup = vim.api.nvim_create_augroup('HarpoonTabline', { clear = true })
-      vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWrite', 'InsertLeave' }, {
-        group = augroup,
-        callback = function()
-          vim.cmd 'redrawtabline'
-        end,
-      })
-
-      -- Basic keymaps
       vim.keymap.set('n', '<leader>ha', function()
         harpoon:list():add()
-        vim.cmd 'redrawtabline'
       end, { desc = '[h]arpoon [a]dd current file to list' })
 
       vim.keymap.set('n', '<leader>ht', function()
@@ -71,12 +56,10 @@ return {
 
       vim.keymap.set('n', '<leader>hh', function()
         harpoon:list():prev()
-        vim.cmd 'redrawtabline'
       end, { desc = '[h]arpoon previous file' })
 
       vim.keymap.set('n', '<leader>hl', function()
         harpoon:list():next()
-        vim.cmd 'redrawtabline'
       end, { desc = '[h]arpoon next file' })
     end,
   },

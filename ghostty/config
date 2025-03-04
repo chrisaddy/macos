@@ -1,4 +1,5 @@
-font-size = 24
-theme = Argonaut
+font-size = 28
+theme = tokyonight_night
 cursor-style = block
 shell-integration-features = cursor,no-title
+background-opacity = 0.4
