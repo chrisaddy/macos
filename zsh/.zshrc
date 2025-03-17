@@ -34,6 +34,7 @@ zinit light Aloxaf/fzf-tab
 alias vim=nvim
 alias c="cd \$(zoxide query --all -i)"
 alias cp="cp -rfiv"
+alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 alias open-pdf="sioyek --shared-database-path $HOME/Sync/sioyek/shared.db"
 shelf() {
     br $HOME/Sync/shelf
@@ -45,8 +46,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
 eval "$(pyenv virtualenv-init -)"
-
-source /Users/caddy/.config/broot/launcher/bash/br
 
 
 function murder() {
