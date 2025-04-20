@@ -14,7 +14,10 @@ install:
 link:
 	stow -t ~ zsh
 	mkdir -p ~/.config/nvim && stow -t ~/.config/nvim nvim
+	mkdir -p ~/.config/emacs && stow -t ~/.config/emacs emacs
 	mkdir -p ~/.config/broot && stow -t ~/.config/broot broot
 	mkdir -p ~/.config/ghostty && stow -t ~/.config/ghostty ghostty
 	stow -t ~/.config/ starship
 	stow -t ~ tmux
+	mkdir -p ~/.config/atuin && stow -t ~/.config/atuin atuin
+	sudo stow -t /usr/local/bin bin

@@ -2,5 +2,5 @@ font-size = 28
 theme = tokyonight_night
 cursor-style = block
 shell-integration-features = cursor,no-title
-background-opacity = 0.4
+background-opacity = 0.6
 macos-titlebar-style = hidden
